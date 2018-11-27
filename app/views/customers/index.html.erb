@@ -1,2 +1,27 @@
-<h1>Customers#index</h1>
-<p>Find me in app/views/customers/index.html.erb</p>
+<h1>All Customers for <%= current_user.email %></h1>
+
+<table class="ui table striped padded selectable">
+<thead>
+    <th>View</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Edit</th>
+    <th>Remove</th>
+</thead>
+<tbody>
+    <% @customers.each do |c| %>
+        <tr>
+            <td><%= link_to 'View', customer_path(c), class: "ui button blue" %></td>
+            <td><%= c.first_name %></td>
+            <td><%= c.last_name %></td>
+            <td><%= c.email %></td>
+            <td><%= c.phone %></td>
+            <td><%= link_to 'Edit', edit_customer_path(c), class: "ui button orange"%></td>
+            <td><%= button_to 'Remove', customer_path(c), method: :delete, class:"ui button red"%></td>
+        </tr>
+    <% end %>
+</tbody>
+</table>
+

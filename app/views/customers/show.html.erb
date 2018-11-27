@@ -1,2 +1,28 @@
-<h1>Customers#show</h1>
-<p>Find me in app/views/customers/show.html.erb</p>
+<h1><%= @customer.full_name %></h1>
+
+
+<table class="ui definition table striped padded selectable">
+    <tbody>
+        <tr>
+            <td>First Name</td>
+            <td><%=@customer.first_name%></td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td><%=@customer.last_name%></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><%=@customer.email%></td>
+        </tr>
+        <tr>
+            <td>Phone</td>
+            <td><%=@customer.phone%></td>
+        </tr>
+    </tbody>
+</table>
+<%= link_to 'Edit', edit_customer_path(@customer), class: "ui orange button" %>
+<%= link_to 'Delete', @customer, method: :delete, class: "ui red button" %>
+
+
+
